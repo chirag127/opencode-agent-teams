@@ -1,0 +1,32 @@
+{
+  "name": "opencode-agent-teams",
+  "version": "0.1.0",
+  "description": "Durable project-scoped teams and dependency-aware tasks for OpenCode V2",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chirag127/opencode-agent-teams.git"
+  },
+  "engines": { "node": ">=22.19.0" },
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc6 -p tsconfig.build.json",
+    "typecheck": "tsc6 --noEmit",
+    "test": "tsc6 -p tsconfig.test.json && node scripts/test.mjs",
+    "check": "npm run typecheck && npm test && npm run build",
+    "test:pack": "node scripts/pack-test.mjs",
+    "prepack": "npm run build"
+  },
+  "dependencies": { "@opencode/plugin": "2.3.2" },
+  "devDependencies": {
+    "@opencode/client": "2.3.2",
+    "@opencode/schema": "2.3.2",
+    "@types/node": "24.12.2",
+    "effect": "4.1.0",
+    "typescript": "npm:@typescript/typescript6@6.0.2"
+  }
+}
